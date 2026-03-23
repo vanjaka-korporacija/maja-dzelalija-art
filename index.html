@@ -114,15 +114,15 @@
             <div class="news-grid">
                 <a href="LINK_INSTA_1" target="_blank" class="news-card">
                     <span class="date">20. Ožujka 2026.</span>
-                    <h3>"Umjetnost je moja zaštita", akril na platnu PRODANO</h3>
-                    <p>...</p>
-                    <span style="font-size: 11px; color: #444cf7; font-weight: 700;">PROČITAJ VIŠE NA INSTAGRAMU →</span>
+                    <h3>Nova serija: Tišina</h3>
+                    <p>Danas sam završila rad na kolekciji koja istražuje teksturu bijele boje...</p>
+                    <span style="font-size: 11px; color: #444cf7; font-weight: 700;">PROČITAJ VIŠE →</span>
                 </a>
                 <a href="LINK_INSTA_2" target="_blank" class="news-card">
                     <span class="date">15. Ožujka 2026.</span>
                     <h3>Otvorenje izložbe</h3>
                     <p>Pridružite mi se idući petak u maloj galeriji na predstavljanju radova...</p>
-                    <span style="font-size: 11px; color: #444cf7; font-weight: 700;">PROČITAJ VIŠE NA INSTAGRAMU →</span>
+                    <span style="font-size: 11px; color: #444cf7; font-weight: 700;">PROČITAJ VIŠE →</span>
                 </a>
             </div>
         </section>
@@ -187,84 +187,6 @@
     </div>
 
     <script>
-        <script>
-    const totalImages = 60;
-    const galleryContainer = document.getElementById('image-gallery');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const counter = document.getElementById('img-counter');
-    let currentIndex = 1;
-
-    // Funkcija koja pokušava učitati sliku s različitim ekstenzijama
-    function tryLoadImage(imgElement, index) {
-        const extensions = ['.jpg', '.JPG', '.jpeg', '.png'];
-        let extIndex = 0;
-
-        imgElement.onerror = () => {
-            extIndex++;
-            if (extIndex < extensions.length) {
-                imgElement.src = `${index}${extensions[extIndex]}`;
-            } else {
-                // Ako nijedna ekstenzija ne radi, sakrij tu karticu da ne zjapi prazna
-                imgElement.parentElement.style.display = 'none';
-            }
-        };
-
-        imgElement.src = `${index}${extensions[extIndex]}`;
-    }
-
-    // Generiranje galerije
-    for (let i = 1; i <= totalImages; i++) {
-        const card = document.createElement('div');
-        card.className = 'art-card';
-        
-        const img = document.createElement('img');
-        img.loading = "lazy";
-        
-        // Pokrećemo pametno učitavanje
-        tryLoadImage(img, i);
-
-        card.onclick = () => openLightbox(i, img.src);
-        card.appendChild(img);
-        galleryContainer.appendChild(card);
-    }
-
-    function openLightbox(index, currentSrc) {
-        currentIndex = index;
-        lightboxImg.src = currentSrc; // Koristi već pronađeni ispravni link
-        updateCounter();
-        lightbox.style.display = 'flex';
-        setTimeout(() => lightbox.classList.add('active'), 10);
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        setTimeout(() => { 
-            lightbox.style.display = 'none'; 
-            document.body.style.overflow = ''; 
-        }, 400);
-    }
-
-    function changeImage(step, event) {
-        if(event) event.stopPropagation();
-        currentIndex += step;
-        if (currentIndex > totalImages) currentIndex = 1;
-        if (currentIndex < 1) currentIndex = totalImages;
-        
-        // Za lightbox tražimo izvor slike s trenutno prikazane kartice u galeriji
-        const cards = document.querySelectorAll('.art-card img');
-        lightboxImg.src = cards[currentIndex - 1].src;
-        updateCounter();
-    }
-
-    function updateCounter() {
-        counter.innerText = `${currentIndex} / ${totalImages}`;
-    }
-
-    lightbox.onclick = (e) => { if(e.target === lightbox) closeLightbox(); };
-</script>
-        
         // Galerija i Lightbox skripta...
         const totalImages = 60;
         const galleryContainer = document.getElementById('image-gallery');
