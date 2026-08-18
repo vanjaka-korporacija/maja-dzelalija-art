@@ -187,7 +187,6 @@
     </div>
 
     <script>
-        // Galerija i Lightbox skripta...
         const totalImages = 60;
         const galleryContainer = document.getElementById('image-gallery');
         const lightbox = document.getElementById('lightbox');
@@ -195,11 +194,26 @@
         const counter = document.getElementById('img-counter');
         let currentIndex = 1;
 
+        // Funkcija koja provjerava postoji li .jpg ili treba pokušati s .JPG
+        function setImageSource(imgElement, index) {
+            const pathJpg = `${index}.jpg`;
+            const pathJPG = `${index}.JPG`;
+            
+            const testImg = new Image();
+            testImg.src = pathJpg;
+            testImg.onload = function() {
+                imgElement.src = pathJpg;
+            };
+            testImg.onerror = function() {
+                imgElement.src = pathJPG;
+            };
+        }
+
         for (let i = 1; i <= totalImages; i++) {
             const card = document.createElement('div');
             card.className = 'art-card';
             const img = document.createElement('img');
-            img.src = `${i}.jpg`;
+            setImageSource(img, i);
             img.loading = "lazy";
             card.onclick = () => openLightbox(i);
             card.appendChild(img);
@@ -228,9 +242,10 @@
         }
 
         function updateLightbox() {
-            lightboxImg.src = `${currentIndex}.jpg`;
+            setImageSource(lightboxImg, currentIndex);
             counter.innerText = `${currentIndex} / ${totalImages}`;
         }
+        
         lightbox.onclick = (e) => { if(e.target === lightbox) closeLightbox(); };
     </script>
 </body>
