@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAJA DŽELALIJA ART</title>
     <style>
-        /* --- OSNOVNI DIZAJN I POZADINA --- */
         body {
             margin: 0; padding: 0; display: flex; justify-content: center;
             min-height: 100vh; background-color: #000; font-family: 'Inter', sans-serif;
@@ -28,6 +27,7 @@
         }
 
         header { padding: 60px 40px; text-align: center; }
+        header a.main-title { text-decoration: none; color: #1a1a1a; }
         header h1 { font-weight: 200; letter-spacing: 10px; text-transform: uppercase; margin: 0; font-size: 2.2rem; }
         
         nav { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 25px; flex-wrap: wrap; }
@@ -38,16 +38,12 @@
         .social-icon { width: 18px; height: 18px; fill: #555; transition: 0.3s; vertical-align: middle; }
         .social-icon:hover { fill: #444cf7; transform: translateY(-2px); }
 
-        /* NOVOSTI SEKCIJA */
-        .news-section { padding: 60px 40px; background: rgba(255, 255, 255, 0.3); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .news-card { 
-            background: rgba(255, 255, 255, 0.6); padding: 30px; border-radius: 15px; 
-            text-decoration: none; color: inherit; display: block; transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.4); max-width: 600px; margin: 0 auto;
-        }
-        .news-card:hover { background: white; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .news-card h3 { margin: 0 0 10px 0; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .news-card .date { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
+        /* GLAVNI SADRŽAJ */
+        .content-section { padding: 60px 40px; text-align: center; }
+        .content-section h2 { font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 5px; }
+        .content-section .date { font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; display: block; }
+        .content-section img { max-width: 100%; height: auto; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .content-section p { max-width: 700px; margin: 0 auto; line-height: 1.6; color: #444; }
 
         /* KONTAKT I NEWSLETTER */
         .contact-section { padding: 80px 40px; text-align: center; }
@@ -75,10 +71,14 @@
 
     <div class="glass-container">
         <header>
-            <h1>MAJA DŽELALIJA ART</h1>
+            <a href="https://vanjaka-korporacija.github.io/maja-dzelalija-art/" class="main-title">
+                <h1>MAJA DŽELALIJA ART</h1>
+            </a>
             <nav>
-                <a href="#novosti">Novosti</a>
-                <a href="#kontakt">Kontakt</a>
+                <a href="https://vanjaka-korporacija.github.io/maja-dzelalija-art/#galerija">Galerija</a>
+                <a href="https://vanjaka-korporacija.github.io/maja-dzelalija-art/#o-autorici">O autorici</a>
+                <a href="https://vanjaka-korporacija.github.io/maja-dzelalija-art/#novosti">Novosti</a>
+                <a href="https://vanjaka-korporacija.github.io/maja-dzelalija-art/#kontakt">Kontakt</a>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=61574662077457" target="_blank">
                         <svg class="social-icon" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3l-.5 3H13v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
@@ -90,14 +90,11 @@
             </nav>
         </header>
 
-        <section class="news-section" id="novosti">
-            <h2 style="text-align: center; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 40px;">Novosti</h2>
-            <a href="LINK_INSTA_1.html" target="_blank" class="news-card">
-                <span class="date">20. Ožujka 2026.</span>
-                <h3>Nova serija: Tišina</h3>
-                <p>Danas sam završila rad na kolekciji koja istražuje teksturu bijele boje...</p>
-                <span style="font-size: 11px; color: #444cf7; font-weight: 700;">PROČITAJ VIŠE →</span>
-            </a>
+        <section class="content-section">
+            <h2>Nova serija: Tišina</h2>
+            <span class="date">20. Ožujka 2026.</span>
+            <img src="foto.png" alt="Naslovna slika">
+            <p>Ovdje upišite tekst vaše novosti. Ovaj tekst se nalazi direktno ispod fotografije.</p>
         </section>
 
         <section class="contact-section" id="kontakt">
